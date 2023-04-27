@@ -15,16 +15,29 @@ const template = (
             <li>Item one</li>
             <li>Item two</li>
         </ol>
-    </div>);
+    </div>
+    );
+let count =0;
+const addOne = () => {
+   console.log('addOne');
+   count++;
+};
 
+const minusOne = () => {
+    console.log('minusOne');
+};
+const reset = () => {
+    console.log('reset');
+};
 const  templateTwo = (
     <div>
-        <h1>Alan Frye</h1>
-        <p>Age: 54</p>
-        <p>Location: Chattanooga</p>
+        <h1>Count: {count} </h1>
+        <button onClick={addOne}>+1 </button>
+        <button onClick={minusOne}>-1 </button>
+        <button onClick={reset}>reset </button>
     </div>
 );
 
 const appRoot = document.getElementById('app');
 
-ReactDOM.render(template,appRoot);
+ReactDOM.render(templateTwo,appRoot); 
