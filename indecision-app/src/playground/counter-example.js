@@ -35,5 +35,4 @@ const renderCounterApp = () => {
 };
 
 renderCounterApp();
-Footer
-© 2023 GitHub, Inc.
+

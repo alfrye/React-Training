@@ -5,7 +5,7 @@ console.log('App.js is running!');
 var appProps = {
   title: "Indecision App",
   subTitle: "Page 1",
-  options: ["One", "two"]
+  options: []
 };
 
 var onFormSubmit = function onFormSubmit(e) {
@@ -58,16 +58,14 @@ var renderApp = function renderApp() {
     React.createElement(
       "ol",
       null,
-      React.createElement(
-        "li",
-        null,
-        "Item one"
-      ),
-      React.createElement(
-        "li",
-        null,
-        "Item two"
-      )
+      appProps.options.map(function (option) {
+        return React.createElement(
+          "li",
+          { key: option },
+          " ",
+          option
+        );
+      })
     ),
     React.createElement(
       "form",
