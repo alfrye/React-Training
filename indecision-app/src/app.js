@@ -25,6 +25,12 @@ const clearOptions = () => {
     appProps.options = [];
     renderApp()
 }
+
+const onMakeDecision = () => {
+     const randomNum = Math.floor(Math.random() * appProps.options.length);
+     const option = appProps.options[randomNum];
+     alert(option);
+    };
 const appRoot = document.getElementById('app');
 const renderApp = () => {
         const template = (
@@ -32,7 +38,7 @@ const renderApp = () => {
                 <h1>{appProps.title}</h1>
                 {appProps.subTitle && <p>{appProps.subTitle}</p>}
                 <p>{appProps.options.length >0 ? "Here are the options" : "No Options"}</p>
-                <p>{appProps.options.length}</p>
+                <button disabled={appProps.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
                 <button onClick={clearOptions}>Clear All</button>
                 {/* using arrays in jsx */}
                 <ol>

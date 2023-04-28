@@ -25,6 +25,12 @@ var clearOptions = function clearOptions() {
   appProps.options = [];
   renderApp();
 };
+
+var onMakeDecision = function onMakeDecision() {
+  var randomNum = Math.floor(Math.random() * appProps.options.length);
+  var option = appProps.options[randomNum];
+  alert(option);
+};
 var appRoot = document.getElementById('app');
 var renderApp = function renderApp() {
   var template = React.createElement(
@@ -46,9 +52,9 @@ var renderApp = function renderApp() {
       appProps.options.length > 0 ? "Here are the options" : "No Options"
     ),
     React.createElement(
-      "p",
-      null,
-      appProps.options.length
+      "button",
+      { disabled: appProps.options.length === 0, onClick: onMakeDecision },
+      "What should I do?"
     ),
     React.createElement(
       "button",
