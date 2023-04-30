@@ -1,65 +1,86 @@
-console.log('App.js is running!')
-
-const appProps = {
-  title: "Indecision App",
-  subTitle: "Page 1",
-  options: []
-};
-
-const onFormSubmit = (e) => {
-  e.preventDefault();  // keeps form from re-rendring page on submit
-
-  const option = e.target.elements.option.value;
-  console.log(option);
-  if (option) {
-    appProps.options.push(option);
-    e.target.elements.option.value = "";
-  
-    renderApp();
-  }
-
-
-};
-
-const clearOptions = () => {
-    appProps.options = [];
-    renderApp()
+class IndecisionApp extends React.Component {
+    render() {
+        return (
+        <div>
+            <Header />
+            <Action />
+            <Options>
+               
+            </Options>
+            
+            <AddOption />
+        </div>
+      );
+    }
+}
+class Header extends React.Component {
+   render() {
+       return (
+        <div>
+           <h1>Indecision </h1>
+           <h2>Put your life  in the hands of a computer</h2>
+        </div>
+       );
+   }
 }
 
-const onMakeDecision = () => {
-     const randomNum = Math.floor(Math.random() * appProps.options.length);
-     const option = appProps.options[randomNum];
-     alert(option);
-    };
-const appRoot = document.getElementById('app');
-const renderApp = () => {
-        const template = (
+class Action extends React.Component {
+    render() {
+        return (
             <div>
-                <h1>{appProps.title}</h1>
-                {appProps.subTitle && <p>{appProps.subTitle}</p>}
-                <p>{appProps.options.length >0 ? "Here are the options" : "No Options"}</p>
-                <button disabled={appProps.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
-                <button onClick={clearOptions}>Clear All</button>
-                {/* using arrays in jsx */}
-                <ol>
-                   {
-                    appProps.options.map((option) => {
-                    return <li key={option}> {option}</li>
-                   })
-                }
-                </ol>
-                <form onSubmit={onFormSubmit}>
-                 <input type="text" name="option"></input>
+               <button>What Should I do?</button>
+               </div>
+ 
+        );
+    }
+}
 
-                  <button>Add Option</button>
-                </form>
+class Options extends React.Component {
+    render () { 
+         return ( // returns jsx 
+            <div>
+            Options will render here
+
+            <Option />
+           
             </div>
-            );
+         );
+    }
+}
 
-        ReactDOM.render(template,appRoot); 
-    };
-    
-  
+class Option extends React.Component {
+    render () {
+        return (
+            <div>
+            Option Component here.
+            </div>
+        );
+    }
+}
+
+class AddOption extends React.Component {
+    render() {
+        return (
+            <div>
+            <form >
+            <input type="text" name="option"></input>
+             <button>Add Option</button>
+           </form>
+       </div>
+       );
+        
+    }
+}
+
+// const jsx = (   
+//      <div>
+//       <Header />
+//       <Action />
+//       <Options />
+//       <AddOption />
+//       </div> 
 
 
-renderApp();
+// );
+
+ReactDOM.render(<IndecisionApp />, document.getElementById('app')); 
