@@ -42,8 +42,13 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.handleRemove = this.handleRemove.bind(this);
+    }
     handleRemove() {
-        alert('Remove item');
+        console.log(this.props.options);
     }
     render () { 
          return ( // returns jsx 
