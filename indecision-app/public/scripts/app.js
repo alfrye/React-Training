@@ -148,7 +148,7 @@ var Header = function Header(props) {
 //Setting default props for stateless functional components
 
 Header.defaultProps = {
-    title: 'some default'
+    title: 'Indecision App'
 };
 
 var Action = function Action(props) {
