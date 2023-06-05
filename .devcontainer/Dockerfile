@@ -22,4 +22,8 @@ RUN npm install --global yarn
 RUN yarn add babel-cli@6.24.1
 RUN yarn add live-server@1.2.1 
 
+# Install Pytho 2.7 in dev container
+RUN sudo apt update && sudo apt -y install python2
+
+
 # This dev container does not include live-server, you must reinstall it you rebuild the dev container.
