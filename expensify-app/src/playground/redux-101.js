@@ -23,8 +23,8 @@ const setCount = ({count=1}= {}) => ({
    count
 });
 
-
-const store = createStore((state= {count:0}, action)=>{
+// Redux reducers
+const countReducer = (state= {count:0}, action) => {
     switch (action.type) {
         case 'INCREMENT':
             const incrementBy = typeof action.incrementBy === 'number' ? action.incrementBy : 1;
@@ -49,18 +49,17 @@ const store = createStore((state= {count:0}, action)=>{
         default: 
           return state;
     }
-});
+};
 
+const store = createStore(countReducer);
+
+// subscribe function returns a function that can 
+// be used to unsubscribe to changes to the store.
 const unsubscribe = store.subscribe(() => {
    console.log(store.getState());
 });
 
 
-
-// store.dispatch({
-//     type: 'INCREMENT',
-//     incrementBy: 5
-// });
 store.dispatch(incrementCount({incrementBy: 5}));
 
 store.dispatch(incrementCount({}));
