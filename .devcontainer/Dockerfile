@@ -7,14 +7,14 @@ RUN apt update  && \
 RUN  apt -y install sudo
 
 
-
+RUN apt-get install -y build-essential
 # Install nodejs 
 
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - && \
 sudo apt-get install -y nodejs 
 
 # Install Yarn 
-# RUN corepack enable && \
+# RUN corepack enable && \yarn 
 # corepack prepare yarn@stable --activate
 
 RUN npm install --global yarn
