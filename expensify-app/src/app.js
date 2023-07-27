@@ -22,7 +22,7 @@ store.subscribe(() => {
 store.dispatch( addExpense({
      description:'Water bill',
      amount: 2100,
-     createAt: 1500,
+     createAt: 1600,
      note: 'Monthly water bill'
 }));
 
@@ -34,13 +34,22 @@ store.dispatch(addExpense({
 
 }));
 
-store.dispatch(setTextFilter('water'
-));
 
-setTimeout(()=> {
-    store.dispatch(setTextFilter('rent'
-    ));
-},3000)
+store.dispatch( addExpense({
+    description:'rent',
+    amount: 109500,
+    createAt: 1500,
+    note: 'Monthly water bill'
+}));
+
+
+// store.dispatch(setTextFilter('water'
+// ));
+
+// setTimeout(()=> {
+//     store.dispatch(setTextFilter('bill'
+//     ));
+// },3000)
 const jsx = (
    <Provider store= {store}> 
    <AppRouter />
