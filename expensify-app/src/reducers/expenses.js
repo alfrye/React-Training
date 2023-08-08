@@ -11,7 +11,8 @@ const expensesReducer = (state = expenseReducerDefaultState, action) => {
         return state.filter(e => e.id != action.expense.id);
     case 'EDIT_EXPENSE':
         return state.map((expense)=> {
-            if (expense.id === action.id) {
+            if (expense.id === action.id) { 
+                console.log(expense.amouunt);
                 return {
                     ...expense,
                     ...action.updates

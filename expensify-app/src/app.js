@@ -22,14 +22,14 @@ store.subscribe(() => {
 store.dispatch( addExpense({
      description:'Water bill',
      amount: 2100,
-     createAt: 1600,
+     createdAt: 1600,
      note: 'Monthly water bill'
 }));
 
 store.dispatch(addExpense({
     description: 'Gas bill',
     amount: 3500,
-    createAt: 2100,
+    createdAt: 2100,
     note: 'Monthly Gas Bill'
 
 }));
@@ -38,7 +38,7 @@ store.dispatch(addExpense({
 store.dispatch( addExpense({
     description:'rent',
     amount: 109500,
-    createAt: 1500,
+    createdAt: 1500,
     note: 'Monthly water bill'
 }));
 
